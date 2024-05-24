@@ -1,11 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-  <HomeLanding />
-  <HomeElderlyCare />
-  <HomeChildCare />
-  <HomeCleaning />
-  <HomeMedical />
-  <HomeTransportation />
-  <HomeKeeper />
+  <div class="page">
+    <HomeLanding />
+    <HomeElderlyCare />
+    <HomeChildCare />
+    <HomeCleaning />
+    <HomeMedical />
+    <HomeTransportation />
+    <HomeKeeper />
+  </div>
 </template>

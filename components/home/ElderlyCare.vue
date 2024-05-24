@@ -1,3 +1,3 @@
 <template>
-  <section class="main tw-bg-blue-500 tw-w-full tw-h-full"></section>
+  <section id="elderly-care" class="main bg-primary tw-w-full"></section>
 </template>

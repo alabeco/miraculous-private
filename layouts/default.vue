@@ -5,7 +5,7 @@ useHead({
 </script>
 
 <template>
-  <v-app>
+  <v-app class="bg-primary">
     <LayoutHeader />
     <slot />
   </v-app>

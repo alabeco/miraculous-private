@@ -1,13 +1,14 @@
 <script setup lang="ts">
   const drawer: Ref<boolean> = ref(false)
   const links = [
+    { icon: 'mdi-home', title: 'Home', to: '/' },
     { icon: 'mdi-information', title: 'About', to: '/about' },
     { icon: 'mdi-contacts', title: 'Contacts', to: '/contacts' },
   ]
 </script>
 
 <template>
-  <v-app-bar app elevation="0" color="transparent">
+  <v-app-bar app :elevation="drawer ? 1 : 0" color="transparent">
     <v-app-bar-nav-icon @click="drawer = !drawer" color="surface" />
     <v-spacer />
     <v-app-bar-title class="tw-flex tw-justify-center">
@@ -23,17 +24,16 @@
     </template>
   </v-app-bar>
 
-  <v-navigation-drawer v-model="drawer" temporary sticky location="left" color="rgba(0,0,0, 0.4)">
+  <v-navigation-drawer v-model="drawer" temporary elevation="2" location="left" color="transparent"> <!--rgba(26, 59, 134, 0.9)-->
     <v-list color="surface" base-color="surface">
       <v-list-item
         v-for="link in links"
         :key="link.title"
         :prepend-icon="link.icon"
         :to="link.to"
-        color="primary"
+        color="surface"
         :title="link.title"
-      >
-      </v-list-item>
+      />
     </v-list>
   </v-navigation-drawer>
 </template>
