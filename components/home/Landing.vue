@@ -1,17 +1,18 @@
 <script setup lang="ts">
   const services = [
-    { title: 'Elderly Care', image: '/images/elderly_man.jpg' },
-    { title: 'Child Care', image: '/images/child_care.jpg' },
-    { title: 'House Cleaning', image: '/images/cleaning.jpg' },
-    { title: 'Non-Emergency Medical', image: '/images/paramedic.jpg' },
-    { title: 'Transportation', image: '/images/courier.jpg' },
-    { title: 'Housemaker Housekeeper', image: '/images/carpenter_1.jpg' },
+    { title: 'Elderly Care', image: '/images/elderly_man.jpg', section: 'elderly-care' },
+    { title: 'Child Care', image: '/images/child_care.jpg', section: 'child-care' },
+    { title: 'House Cleaning', image: '/images/cleaning.jpg', section: 'house-cleaning' },
+    { title: 'Non-Emergency Medical', image: '/images/paramedic.jpg', section: 'medical' },
+    { title: 'Transportation', image: '/images/courier.jpg', section: 'transportation' },
+    { title: 'Housemaking/Housekeeping', image: '/images/carpenter_1.jpg', section: 'housemaking' },
   ]
   const currentService = ref(0)
 </script>
 
 <template>
-  <section class="main bg-primary tw-py-16 tw-relative tw-flex tw-justify-center tw-items-center overflow-hidden">
+  <section id="landing" class="main bg-primary tw-py-16 tw-relative tw-flex tw-justify-center tw-items-center overflow-hidden">
+    <div class="veil veil--primary"></div>
     <div class="circle xxlarge shade1"></div>
     <div class="circle xlarge shade2"></div>
     <div class="circle small shade3"></div>
@@ -21,7 +22,11 @@
           Miraculous Private
         </h1>
         <p class="tw-text-xl ubuntu-regular tw-animate-in tw-zoom-in-75 tw-duration-700">
-          The best service provider for your needs in {{ services[currentService].title }}
+          The best service provider for your needs
+        </p>
+        <p class="tw-text-2xl tw-animate-in tw-zoom-in-75 tw-duration-1000">
+          <span class="ubuntu-regular"> in </span>
+          <span class="ubuntu-bold"> {{ services[currentService].title }} </span>
         </p>
       </div>
 
@@ -30,8 +35,13 @@
           v-for="service, idx in services"
           :key="service.title"
         >
-          <v-card rounded="pill">
+          <v-card rounded="pill" class="tw-relative">
             <v-img cover width="100%" height="320px" :src="service.image" />
+            <div class="learn-more-c tw-absolute tw-bottom-0 tw-text-center tw-w-full tw-pb-4 tw-pt-8">
+              <v-btn :to="`#${service.section}`" color="surface" variant="outlined">
+                Learn more
+              </v-btn>
+            </div>
           </v-card>
         </v-window-item>
       </v-window>

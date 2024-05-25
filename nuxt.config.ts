@@ -56,5 +56,12 @@ export default defineNuxtConfig({
   css: [
     '~/assets/scss/main.scss',
     '~/assets/scss/fonts.scss',
+    '~/assets/scss/landing.scss',
+    '~/assets/scss/elderly_care.scss',
+    '~/assets/scss/child_care.scss',
+    '~/assets/scss/cleaning.scss',
+    '~/assets/scss/medical.scss',
+    '~/assets/scss/transportation.scss',
+    '~/assets/scss/keeper.scss',
   ]
 })
