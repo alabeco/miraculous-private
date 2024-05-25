@@ -10,6 +10,11 @@
           Elderly Care
         </h2>
       </div>
+      <div class="tw-w-full tw-max-w-lg tw-text-xl tw-text-center">
+        Let Miraculous Private be your partner in providing exceptional care for your loved ones.
+        Contact us today to schedule a consultation and discover how we can help your family
+        achieve peace of mind and a higher quality of life for your elderly loved ones.
+      </div>
       <div class="">
         <v-card class=""></v-card>
       </div>
