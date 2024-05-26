@@ -35,7 +35,7 @@
           v-for="service, idx in services"
           :key="service.title"
         >
-          <v-card rounded="pill" class="tw-relative">
+          <v-card rounded="lg" variant="outlined" class="tw-relative">
             <v-img cover width="100%" height="320px" :src="service.image" />
             <div class="learn-more-c tw-absolute tw-bottom-0 tw-text-center tw-w-full tw-pb-4 tw-pt-8">
               <v-btn :to="`#${service.section}`" color="surface" variant="outlined">
