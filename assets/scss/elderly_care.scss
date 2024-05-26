@@ -4,3 +4,29 @@
   background-attachment: fixed;
   background-position: center;
 }
+
+.e-img {
+  position: absolute !important;
+
+  &-r-1 {
+    top: calc(50% - 37.5px);
+    right: calc(50% - 175px);
+
+    @media (min-width: 1024px) {
+      right: -16px;
+      top: -100px;
+    }
+  }
+
+  &-l-1 {
+    top: calc(50% - 37.5px);
+    left: calc(50% - 175px);
+
+    @media (min-width: 1024px) {
+      right: -16px;
+      bottom: -100px;
+      left: auto;
+      top: auto;
+    }
+  }
+}

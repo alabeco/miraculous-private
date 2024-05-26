@@ -38,7 +38,8 @@ export default defineNuxtConfig({
         // @ts-expect-error
         config.plugins.push(vuetify({ autoImport: true }))
       })
-    }
+    },
+    "@vueuse/nuxt",
   ],
 
   build: {

@@ -1,3 +1,127 @@
+@mixin x-keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin x-animation($string...) {
+  -webkit-animation: #{$string};
+  -moz-animation: #{$string};
+  -o-animation: #{$string};
+  animation: #{$string};
+}
+
+@mixin x-animation-delay($string...) {
+  -webkit-animation-delay: #{$string};
+  -moz-animation-delay: #{$string};
+  -o-animation-delay: #{$string};
+  animation-delay: #{$string};
+}
+
+@mixin x-transition($string...) {
+  -webkit-transition: #{$string};
+  -moz-transition: #{$string};
+  -o-transition: #{$string};
+  transition: #{$string};
+}
+
+@mixin x-transform($string...) {
+  -webkit-transform: #{$string};
+  -moz-transform: #{$string};
+  -o-transform: #{$string};
+  transform: #{$string};
+}
+
+@mixin xs() {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin sm() {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@include x-keyframes(ripple) {
+  0% {
+    @include x-transform(scale(1.0));
+  }
+
+  50% {
+    @include x-transform(scale(2.4));
+  }
+
+  100% {
+    @include x-transform(scale(1.0));
+  }
+}
+
+@include x-keyframes(fadeIn) {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@include x-keyframes(slideDown) {
+  0% {
+    @include x-transform(translateY(-100%));
+  }
+
+  100% {
+    @include x-transform(translateY(0));
+  }
+}
+
+@include x-keyframes(slideUp) {
+  0% {
+    @include x-transform(translateY(100%));
+  }
+
+  100% {
+    @include x-transform(translateY(0));
+  }
+}
+
+@include x-keyframes(zoomIn) {
+  0% {
+    @include x-transform(scale(0));
+  }
+
+  100% {
+    @include x-transform(scale(1));
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -13,8 +137,7 @@ html {
   position: absolute;
   border-radius: 0;
   background: white;
-  animation: ripple 60s linear infinite;
-  box-shadow: 0px 0px 1px 0px #508fb9;
+  @include x-animation(ripple 60s linear infinite);
 }
 
 .small {
@@ -39,9 +162,9 @@ html {
 }
 
 .xlarge-1  {
-  width: 80%;
+  width: 100%;
   height: 80%;
-  left: 10%;
+  left: 0;
   top: -40%;
 }
 
@@ -72,19 +195,6 @@ html {
   background: #000;
 }
 
-@keyframes ripple{
-  0% {
-    transform: scale(1.0);
-  }
-
-  50% {
-    transform: scale(2.4);
-  }
-
-  100% {
-    transform: scale(1.0);
-  }
-}
 
 .veil {
   position: absolute;
@@ -98,4 +208,52 @@ html {
   &--primary {
     background: rgba(26, 59, 134, 0.8);
   }
+}
+
+.fade-down {
+  @include x-animation(
+    fadeIn 700ms ease-in-out forwards,
+    slideDown 700ms ease-in-out forwards,
+  );
+}
+
+.fade-up {
+  @include x-animation(
+    fadeIn 700ms ease-in-out forwards,
+    slideUp 700ms ease-in-out forwards,
+  );
+}
+
+.slide-down {
+  @include x-animation(slideDown 700ms ease-in-out forwards);
+}
+
+.fade-in {
+  @include x-animation(fadeIn 700ms ease-in-out forwards);
+
+}
+
+.fade-in-2 {
+  @include x-animation(fadeIn 700ms ease-in-out forwards);
+  @include x-animation-delay(500ms);
+}
+
+.fade-in-3 {
+  @include x-animation(fadeIn 700ms ease-in-out forwards);
+  @include x-animation-delay(1000ms);
+}
+
+.fade-down-3 {
+  @include x-animation(
+    fadeIn 700ms ease-in-out forwards,
+    slideDown 700ms ease-in-out forwards
+  );
+  @include x-animation-delay(1000ms);
+}
+
+.zoom-in {
+  @include x-animation(
+    zoomIn 700ms ease-in-out forwards,
+    fadeIn 700ms ease-in-out forwards
+  );
 }
