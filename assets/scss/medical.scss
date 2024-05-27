@@ -4,3 +4,27 @@
   background-attachment: fixed;
   background-position: center;
 }
+
+.m-img {
+  position: absolute !important;
+
+  &-r-1 {
+    top: 8px;
+    left: calc(50% + 62.5px);
+
+    @media (min-width: 1024px) {
+      top: -100px;
+      left: calc(50% - 75px);
+    }
+  }
+
+  &-l-1 {
+    top: 8px;
+    right: calc(50% + 62.5px);
+
+    @media (min-width: 1024px) {
+      top: -100px;
+      right: calc(50% - 75px);
+    }
+  }
+}

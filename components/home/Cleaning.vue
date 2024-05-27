@@ -6,6 +6,10 @@
     '/images/window-washing.jpg',
     '/images/cleaning-1.jpg',
     '/images/cleaning-2.jpg',
+    '/images/cleaning-3.jpg',
+    '/images/cleaning-4.jpg',
+    '/images/cleaning-5.jpg',
+    '/images/cleaning-6.jpg',
   ]
 
   const section = ref<HTMLElement | null>(null)
