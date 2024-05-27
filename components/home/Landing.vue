@@ -13,6 +13,7 @@
 
   const section = ref<HTMLElement | null>(null)
   const sectionIsVisible = ref(false)
+  const interval = ref<NodeJS.Timeout | null>(null)
 
   const { stop } = useIntersectionObserver(
     section,
@@ -24,6 +25,16 @@
   function requestContacts() {
     PubSub.publish('request-contacts')
   }
+
+  onMounted(() => {
+    interval.value = setInterval(() => {
+      currentService.value = (currentService.value + 1) % services.length
+    }, 3500)
+  })
+
+  onBeforeUnmount(() => {
+    if (interval.value) clearInterval(interval.value)
+  })
 </script>
 
 <template>

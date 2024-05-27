@@ -3,6 +3,17 @@
 
   const section = ref<HTMLElement | null>(null)
   const sectionIsVisible = ref(false)
+  const mainImage = ref(0)
+  const secondaryImage1 = ref(1)
+  const secondaryImage2 = ref(2)
+  const interval1 = ref<NodeJS.Timeout | null>(null)
+
+  const images = [
+    '/images/elderly-care.jpg',
+    '/images/senior-patient.jpg',
+    '/images/happy-grandmother.jpg',
+    '/images/elder_with_ball.jpg',
+  ]
 
   const { stop } = useIntersectionObserver(
     section,
@@ -16,6 +27,18 @@
       service: 'Elderly Care'
     })
   }
+
+  onMounted(() => {
+    interval1.value = setInterval(() => {
+      mainImage.value = (mainImage.value + 1) % images.length
+      secondaryImage1.value = (secondaryImage1.value + 1) % images.length
+      secondaryImage2.value = (secondaryImage2.value + 1) % images.length
+    }, 5000)
+  })
+
+  onBeforeUnmount(() => {
+    if (interval1.value) clearInterval(interval1.value)
+  })
 </script>
 
 <template>
@@ -36,15 +59,66 @@
         achieve peace of mind and a higher quality of life for your elderly loved ones.
       </div>
       <div class="lg:tw-hidden tw-relative tw-w-full">
-        <v-img src="/images/elderly-care.jpg" width="200" height="150" cover rounded="lg" class="tw-mx-auto hover:tw-z-10" />
-        <v-img src="/images/senior-patient.jpg" width="100" height="75" cover rounded="lg" class="e-img e-img-r-1" />
-        <v-img src="/images/happy-grandmother.jpg" width="100" height="75" cover rounded="lg" class="e-img e-img-l-1" />
+        <v-img
+          lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          :src="images[mainImage]"
+          width="200"
+          height="150"
+          cover
+          rounded="lg"
+          class="tw-mx-auto fade-in hover:tw-z-10"
+        />
+        <v-img
+          lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          :src="images[secondaryImage1]"
+          :key="secondaryImage1"
+          width="100"
+          height="75"
+          cover
+          rounded="lg"
+          class="e-img e-img-r-1 fade-in"
+        />
+        <v-img
+          lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          :src="images[secondaryImage2]"
+          :key="secondaryImage2"
+          width="100"
+          height="75"
+          cover
+          rounded="lg"
+          class="e-img e-img-l-1 fade-in"
+        />
       </div>
 
       <div class="tw-relative tw-hidden lg:tw-flex tw-w-auto tw-h-100 tw-flex-grow tw-max-w-lg">
-        <v-img src="/images/elderly-care.jpg" cover rounded="lg" class="tw-mx-auto hover:tw-z-10" />
-        <v-img src="/images/senior-patient.jpg" width="200" height="150" cover rounded="lg" class="e-img e-img-r-1" />
-        <v-img src="/images/happy-grandmother.jpg" width="200" height="150" cover rounded="lg" class="e-img e-img-l-1" />
+        <v-img
+          lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          :src="images[mainImage]"
+          cover
+          rounded="lg"
+          height="300"
+          class="tw-mx-auto fade-in hover:tw-z-10"
+        />
+        <v-img
+          lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          :src="images[secondaryImage1]"
+          :key="secondaryImage1"
+          width="200"
+          height="150"
+          cover
+          rounded="lg"
+          class="tw-opacity-0 e-img e-img-r-1 fade-in"
+        />
+        <v-img
+          lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          :src="images[secondaryImage2]"
+          :key="secondaryImage2"
+          width="200"
+          height="150"
+          cover
+          rounded="lg"
+          class="tw-opacity-0 e-img e-img-l-1 fade-in"
+        />
       </div>
 
       <div :class="`tw-opacity-0 tw-w-full tw-flex tw-flex-wrap tw-justify-center tw-gap-4 ${ sectionIsVisible ? 'fade-up' : ''}`">
