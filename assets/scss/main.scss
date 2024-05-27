@@ -210,6 +210,13 @@ html {
   }
 }
 
+.transition-3 {
+  @include x-transition(all 0.3s ease-in-out);
+}
+.transition-7 {
+  @include x-transition(all 0.7s ease-in-out);
+}
+
 .fade-down {
   @include x-animation(
     fadeIn 700ms ease-in-out forwards,

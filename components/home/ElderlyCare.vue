@@ -97,7 +97,7 @@
           cover
           rounded="lg"
           height="300"
-          class="tw-mx-auto fade-in hover:tw-z-10"
+          class="tw-mx-auto fade-in hover:tw-z-10 transition-7"
         />
         <v-img
           lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
