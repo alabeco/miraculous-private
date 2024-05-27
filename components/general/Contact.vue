@@ -24,6 +24,8 @@ const title = ref('')
 
 const phones = [
   "+18622244177",
+  "+19172463651",
+  "+19175178960",
   "+19734492046"
 ]
 
@@ -93,9 +95,9 @@ async function sendMessage() {
             Our Phone Numbers
           </p>
 
-          <v-text-field v-for="phone in phones" :model-value="phone" :key="phone" readonly density="compact" variant="outlined">
+          <v-text-field v-for="phone in phones" :model-value="phone" :key="phone" readonly density="compact" variant="outlined" class="tw-w-1/3">
             <template #append-inner>
-              <v-btn :href="`tel:${phone}`" size="small">
+              <v-btn :href="`tel:${phone}`" size="small" >
                 <v-icon>mdi-phone</v-icon>
               </v-btn>
             </template>
