@@ -40,6 +40,7 @@ export default defineNuxtConfig({
       })
     },
     "@vueuse/nuxt",
+    '@pinia/nuxt',
   ],
 
   build: {
@@ -64,5 +65,11 @@ export default defineNuxtConfig({
     '~/assets/scss/medical.scss',
     '~/assets/scss/transportation.scss',
     '~/assets/scss/keeper.scss',
-  ]
+  ],
+
+  runtimeConfig: {
+    // Blank inputs are to be added in ENV variables
+    adminEmail: '', // NUXT_ADMIN_EMAIL
+    sendgridApiKey: '', // NUXT_SENDGRID_API_KEY
+  },
 })

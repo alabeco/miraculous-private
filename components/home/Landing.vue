@@ -20,6 +20,10 @@
       sectionIsVisible.value = isIntersecting
     },
   )
+
+  function requestContacts() {
+    PubSub.publish('request-contacts')
+  }
 </script>
 
 <template>
@@ -59,7 +63,9 @@
       </v-window>
 
       <div :class="`tw-opacity-0 tw-w-full tw-flex tw-flex-wrap tw-justify-center tw-gap-4 ${ sectionIsVisible ? 'fade-up' : ''}`">
-        <v-btn size="x-large" variant="outlined" to="/contacts">Get in touch</v-btn>
+        <v-btn size="x-large" variant="outlined" @click.prevent.stop="requestContacts">
+          Get in touch
+        </v-btn>
       </div>
     </div>
   </section>

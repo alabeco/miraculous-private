@@ -8,5 +8,7 @@ useHead({
   <v-app class="bg-primary">
     <LayoutHeader />
     <slot />
+    <GeneralContact />
+    <NotificationContainer />
   </v-app>
 </template>

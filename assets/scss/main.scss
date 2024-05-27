@@ -257,3 +257,15 @@ html {
     fadeIn 700ms ease-in-out forwards
   );
 }
+
+.d-close-btn {
+  position: absolute !important;
+  top: -8px;
+  right: -8px;
+}
+
+.alerts {
+  position: fixed;
+  z-index: 2500;
+  top: 32px;
+}

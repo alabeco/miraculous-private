@@ -1,10 +1,15 @@
 <script setup lang="ts">
+  import PubSub from 'pubsub-js'
+
   const drawer: Ref<boolean> = ref(false)
   const links = [
     { icon: 'mdi-home', title: 'Home', to: '/' },
     { icon: 'mdi-information', title: 'About', to: '/about' },
-    { icon: 'mdi-contacts', title: 'Contacts', to: '/contacts' },
   ]
+
+  function requestContacts() {
+    PubSub.publish('request-contacts')
+  }
 </script>
 
 <template>
@@ -18,7 +23,7 @@
     </v-app-bar-title>
     <v-spacer />
     <template v-slot:append>
-      <v-btn icon color="surface">
+      <v-btn icon color="surface" @click.prevent.stop="requestContacts">
         <v-icon>mdi-phone</v-icon>
       </v-btn>
     </template>
@@ -33,6 +38,13 @@
         :to="link.to"
         color="surface"
         :title="link.title"
+      />
+
+      <v-list-item
+        prepend-icon="mdi-contacts"
+        @click.prevent.stop="requestContacts"
+        color="surface"
+        title="Contact Us"
       />
     </v-list>
   </v-navigation-drawer>
