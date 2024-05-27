@@ -2,10 +2,13 @@
   import { useIntersectionObserver } from '@vueuse/core'
 
   const images = [
-    '/images/baby_1.jpg',
-    '/images/baby_2.jpg',
-    '/images/baby_3.jpg',
     '/images/child_care.jpg',
+    '/images/child_care_1.jpeg',
+    '/images/baby_2.jpg',
+    '/images/child_care_2.jpeg',
+    '/images/child_care_3.jpeg',
+    '/images/baby_1.jpg',
+    '/images/child_care_4.jpeg',
   ]
 
   const section = ref<HTMLElement | null>(null)
@@ -55,7 +58,6 @@
         <v-img
           lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           :src="images[mainImage]"
-          :key="mainImage"
           width="200"
           height="200"
           rounded="circle"
