@@ -12,6 +12,10 @@
     '/images/transport_1.jpg',
     '/images/transport_2.jpg',
     '/images/transport_3.jpg',
+    '/images/transport_4.jpg',
+    '/images/transport_5.jpg',
+    '/images/transport_6.jpg',
+    '/images/transport_7.jpeg',
     '/images/courier.jpg',
   ]
 
