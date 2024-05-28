@@ -265,6 +265,22 @@ html {
   );
 }
 
+.zoom-in-1 {
+  @include x-animation(
+    zoomIn 700ms ease-in-out forwards,
+    fadeIn 700ms ease-in-out forwards
+  );
+  @include x-animation-delay(300ms);
+}
+
+.zoom-in-2 {
+  @include x-animation(
+    zoomIn 700ms ease-in-out forwards,
+    fadeIn 700ms ease-in-out forwards
+  );
+  @include x-animation-delay(500ms);
+}
+
 .d-close-btn {
   position: absolute !important;
   top: -8px;

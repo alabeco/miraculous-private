@@ -10,5 +10,6 @@ useHead({
     <slot />
     <GeneralContact />
     <NotificationContainer />
+    <LayoutFooter />
   </v-app>
 </template>
